@@ -1,0 +1,88 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  color: #242424;
+  margin: 0;
+}
+
+#root {
+  background-color: rgb(255, 255, 255);
+  margin: 0 60px;
+  padding-bottom: 20px;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 5px 10px 40px #888888;
+}
+
+header {
+  height: 260px;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+  display: block;
+  position: absolute;
+  z-index: 1; /* Ensure the logo is above the background */
+}
+
+.pixelated-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 10px);
+  grid-auto-rows: 10px;
+  gap: 3px;
+  z-index: 0; /* Ensure the background is behind the logo */
+  overflow: hidden;
+}
+
+.pixel {
+  background-color: #000000;
+  opacity: 0; /* Start with pixels invisible */
+  animation: flicker 3s infinite ease-in-out;
+  will-change: opacity; 
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 0; /* Fade out at the start and end */
+  }
+  50% {
+    opacity: 1; /* Fade in at the midpoint */
+  }
+}
+
+main > h1 {
+  margin-top: 40px;
+  padding-left: 20px;
+}
+
+.lists {
+  margin-top: 30px;
+  padding:0 50px;
+}
+
+.lists > li {
+  padding-block: 10px;
+  line-height: 19px;
+  padding-left: 1em;
+}
+
+.lists > li::marker {
+  content: '⚫️';
+}
